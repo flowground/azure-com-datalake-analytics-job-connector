@@ -1,0 +1,256 @@
+{
+    "title": "DataLakeAnalyticsJobManagementClient",
+    "description": "Creates an Azure Data Lake Analytics job client.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/datalake-analytics-job/2017-09-01-preview/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://azure.local/",
+                    "{accountName}.{adlaJobDnsSuffix}",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Job_Build": {
+            "main": "./lib/actions/Job_Build.js",
+            "title": "Builds (compiles) the specified job in the specified Data Lake Analytics account for job correctness and validation.",
+            "description": "Builds (compiles) the specified job in the specified Data Lake Analytics account for job correctness and validation.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_Build.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Job_List": {
+            "main": "./lib/actions/Job_List.js",
+            "title": "Lists the jobs, if any, associated with the specified Data Lake Analytics account. The response includes a link to the next page of results, if any.",
+            "description": "Lists the jobs, if any, associated with the specified Data Lake Analytics account. The response includes a link to the next page of results, if any.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Job_Get": {
+            "main": "./lib/actions/Job_Get.js",
+            "title": "Gets the job information for the specified job ID.",
+            "description": "Gets the job information for the specified job ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Job_Update": {
+            "main": "./lib/actions/Job_Update.js",
+            "title": "Updates the job information for the specified job ID. (Only for use internally with Scope job type.)",
+            "description": "Updates the job information for the specified job ID. (Only for use internally with Scope job type.)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Job_Create": {
+            "main": "./lib/actions/Job_Create.js",
+            "title": "Submits a job to the specified Data Lake Analytics account.",
+            "description": "Submits a job to the specified Data Lake Analytics account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Job_Cancel": {
+            "main": "./lib/actions/Job_Cancel.js",
+            "title": "Cancels the running job specified by the job ID.",
+            "description": "Cancels the running job specified by the job ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_Cancel.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Job_GetDebugDataPath": {
+            "main": "./lib/actions/Job_GetDebugDataPath.js",
+            "title": "Gets the job debug data information specified by the job ID.",
+            "description": "Gets the job debug data information specified by the job ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_GetDebugDataPath.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Job_GetStatistics": {
+            "main": "./lib/actions/Job_GetStatistics.js",
+            "title": "Gets statistics of the specified job.",
+            "description": "Gets statistics of the specified job.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_GetStatistics.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Job_Yield": {
+            "main": "./lib/actions/Job_Yield.js",
+            "title": "Pauses the specified job and places it back in the job queue, behind other jobs of equal or higher importance, based on priority. (Only for use internally with Scope job type.)",
+            "description": "Pauses the specified job and places it back in the job queue, behind other jobs of equal or higher importance, based on priority. (Only for use internally with Scope job type.)",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Job_Yield.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Pipeline_List": {
+            "main": "./lib/actions/Pipeline_List.js",
+            "title": "Lists all pipelines.",
+            "description": "Lists all pipelines.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Pipeline_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Pipeline_Get": {
+            "main": "./lib/actions/Pipeline_Get.js",
+            "title": "Gets the Pipeline information for the specified pipeline ID.",
+            "description": "Gets the Pipeline information for the specified pipeline ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Pipeline_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Recurrence_List": {
+            "main": "./lib/actions/Recurrence_List.js",
+            "title": "Lists all recurrences.",
+            "description": "Lists all recurrences.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Recurrence_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Recurrence_Get": {
+            "main": "./lib/actions/Recurrence_Get.js",
+            "title": "Gets the recurrence information for the specified recurrence ID.",
+            "description": "Gets the recurrence information for the specified recurrence ID.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Recurrence_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

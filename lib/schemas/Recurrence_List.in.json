@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "startDateTime": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "endDateTime": {
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

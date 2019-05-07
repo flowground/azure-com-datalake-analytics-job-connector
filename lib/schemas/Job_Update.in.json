@@ -1,0 +1,42 @@
+{
+    "type": "object",
+    "properties": {
+        "jobIdentity": {
+            "required": true,
+            "type": "string",
+            "format": "uuid"
+        },
+        "requestBody": {
+            "description": "The parameters that can be used to update existing Data Lake Analytics job information properties. (Only for use internally with Scope job type.)",
+            "properties": {
+                "degreeOfParallelism": {
+                    "description": "The degree of parallelism used for this job.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "degreeOfParallelismPercent": {
+                    "description": "the degree of parallelism in percentage used for this job.",
+                    "format": "double",
+                    "type": "number"
+                },
+                "priority": {
+                    "description": "The priority value for the current job. Lower numbers have a higher priority. By default, a job has a priority of 1000. This must be greater than 0.",
+                    "format": "int32",
+                    "type": "integer"
+                },
+                "tags": {
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "description": "The key-value pairs used to add additional metadata to the job information.",
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

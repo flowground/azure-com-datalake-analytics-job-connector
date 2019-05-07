@@ -1,0 +1,37 @@
+{
+    "type": "object",
+    "properties": {
+        "_filter": {
+            "required": false,
+            "type": "string"
+        },
+        "_top": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1
+        },
+        "_skip": {
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "minimum": 1
+        },
+        "_select": {
+            "required": false,
+            "type": "string"
+        },
+        "_orderby": {
+            "required": false,
+            "type": "string"
+        },
+        "_count": {
+            "required": false,
+            "type": "boolean"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
